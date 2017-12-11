@@ -30,6 +30,13 @@ class UpdateCustomerProfile
             )
         );
 
+        if (!($customer instanceof Customer)) {
+            throw new \Exception(sprintf(
+                'No customer found for id %d',
+                $customerId
+            ));
+        }
+
         if ('email' === $field) {
             $value = new Email($value);
         }

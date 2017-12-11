@@ -48,8 +48,12 @@ class Customer
         return $this->events;
     }
 
-    public static function regenerateFrom(array $events) : self
+    public static function regenerateFrom(array $events) : ?self
     {
+        if (empty($events)) {
+            return null;
+        }
+
         $customer = new self();
 
         foreach ($events as $event) {
