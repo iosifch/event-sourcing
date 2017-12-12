@@ -9,7 +9,7 @@ use App\ValueObject\Email;
 use App\EventStore\CustomerEventStore;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class UpdateCustomerProfile
+final class UpdateCustomerProfile
 {
     private $eventDispatcher;
     private $customerEventStore;

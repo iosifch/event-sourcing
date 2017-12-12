@@ -8,7 +8,7 @@ use App\ValueObject\CustomerId;
 use App\ValueObject\Email;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class RegisterCustomer
+final class RegisterCustomer
 {
     private $eventDispatcher;
 

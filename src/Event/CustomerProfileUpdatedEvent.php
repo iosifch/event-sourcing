@@ -5,7 +5,7 @@ namespace App\Event;
 use App\ValueObject\CustomerId;
 use Symfony\Component\EventDispatcher\Event;
 
-class CustomerProfileUpdatedEvent extends Event implements CustomerEventInterface
+final class CustomerProfileUpdatedEvent extends Event implements CustomerEventInterface
 {
     const NAME = 'customer_profile_updated';
 

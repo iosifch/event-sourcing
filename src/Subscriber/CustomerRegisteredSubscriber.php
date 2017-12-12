@@ -6,7 +6,7 @@ use App\Event\CustomerRegisteredEvent;
 use App\EventStore\CustomerEventStore;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class CustomerRegisteredSubscriber implements EventSubscriberInterface
+final class CustomerRegisteredSubscriber implements EventSubscriberInterface
 {
     private $customerEventStore;
 

@@ -6,7 +6,7 @@ use App\Event\CustomerEventInterface;
 use App\ValueObject\CustomerId;
 use Doctrine\ORM\EntityManagerInterface;
 
-class CustomerEventStore
+final class CustomerEventStore
 {
     private $em;
 

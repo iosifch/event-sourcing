@@ -6,7 +6,7 @@ use App\Event\CustomerProfileUpdatedEvent;
 use App\EventStore\CustomerEventStore;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class CustomerProfileUpdatedSubscriber implements EventSubscriberInterface
+final class CustomerProfileUpdatedSubscriber implements EventSubscriberInterface
 {
     private $customerEventStore;
 

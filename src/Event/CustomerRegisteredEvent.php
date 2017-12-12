@@ -6,7 +6,7 @@ use App\ValueObject\CustomerId;
 use App\ValueObject\Email;
 use Symfony\Component\EventDispatcher\Event;
 
-class CustomerRegisteredEvent extends Event implements CustomerEventInterface
+final class CustomerRegisteredEvent extends Event implements CustomerEventInterface
 {
     const NAME = 'customer_registered';
 
