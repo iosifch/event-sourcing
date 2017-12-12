@@ -27,7 +27,7 @@ final class CustomerProfileUpdatedSubscriber implements EventSubscriberInterface
 
         printf(
             "Customer profile updated %d %s %s" . PHP_EOL,
-            $event->customerId()->id(),
+            $event->customerId()->value(),
             $event->field(),
             $event->value()
         );

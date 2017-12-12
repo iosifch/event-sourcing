@@ -16,7 +16,7 @@ final class CustomerId
         return new self(mt_rand());
     }
 
-    public function id() : int
+    public function value() : int
     {
         return $this->id;
     }

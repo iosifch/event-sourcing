@@ -43,7 +43,7 @@ class ViewCommand extends Command
 
         $output->writeln(sprintf(
             'Customer with id `%d`, name `%s`, email `%s`',
-            $customer->id()->id(),
+            $customer->id()->value(),
             $customer->name(),
             $customer->email()
         ));

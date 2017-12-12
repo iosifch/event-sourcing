@@ -43,7 +43,7 @@ final class CustomerProfileUpdatedEvent extends Event implements CustomerEventIn
     {
         return sprintf(
             'Customer profile updated ID `%d`, field `%s`, data `%s`',
-            $this->customerId->id(),
+            $this->customerId->value(),
             $this->field,
             $this->value
         );

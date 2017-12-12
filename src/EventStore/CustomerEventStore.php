@@ -26,7 +26,7 @@ final class CustomerEventStore
         ';
         $stmt = $conn->prepare($sql);
         $stmt->execute([
-            'customer_id'   => $event->customerId()->id(),
+            'customer_id'   => $event->customerId()->value(),
             'event_name'    => $event::NAME,
             'data'          => serialize($event)
         ]);
@@ -45,7 +45,7 @@ final class CustomerEventStore
             WHERE customer_id = :customer_id
         ');
 
-        $stmt->execute(['customer_id' => $customerId->id()]);
+        $stmt->execute(['customer_id' => $customerId->value()]);
         $events = $stmt->fetchAll();
 
         return array_map(function($event) {

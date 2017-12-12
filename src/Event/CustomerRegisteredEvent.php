@@ -44,7 +44,7 @@ final class CustomerRegisteredEvent extends Event implements CustomerEventInterf
     {
         return sprintf(
             'Customer registered with id `%d`, name `%s`, email `%s`',
-            $this->customerId->id(),
+            $this->customerId->value(),
             $this->name,
             $this->email
         );

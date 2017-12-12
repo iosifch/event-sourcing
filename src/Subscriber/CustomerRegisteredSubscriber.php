@@ -28,7 +28,7 @@ final class CustomerRegisteredSubscriber implements EventSubscriberInterface
 
         printf(
             "A new customer registered: %d %s %s" . PHP_EOL,
-            $event->customerId()->id(),
+            $event->customerId()->value(),
             $event->name(),
             $event->email()->value()
         );
