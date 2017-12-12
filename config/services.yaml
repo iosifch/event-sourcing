@@ -28,5 +28,9 @@ services:
             - { name: kernel.event_subscriber, event: customer_registered }
             - { name: kernel.event_subscriber, event: customer_profile_updated }
 
+    App\Subscriber\CustomerCustomProjector:
+        tags:
+            - { name: kernel.event_subscriber, event: customer_registered }
+            - { name: kernel.event_subscriber, event: customer_profile_updated }
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
