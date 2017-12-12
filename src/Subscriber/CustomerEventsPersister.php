@@ -2,11 +2,12 @@
 
 namespace App\Subscriber;
 
+use App\Event\CustomerProfileUpdatedEvent;
 use App\Event\CustomerRegisteredEvent;
 use App\EventStore\CustomerEventStore;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-final class CustomerRegisteredSubscriber implements EventSubscriberInterface
+final class CustomerEventsPersister implements EventSubscriberInterface
 {
     private $customerEventStore;
 
@@ -18,7 +19,8 @@ final class CustomerRegisteredSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents() : array
     {
         return [
-            CustomerRegisteredEvent::NAME => 'onCustomerRegistered'
+            CustomerRegisteredEvent::NAME => 'onCustomerRegistered',
+            CustomerProfileUpdatedEvent::NAME => 'onCustomerProfileUpdated'
         ];
     }
 
@@ -31,6 +33,18 @@ final class CustomerRegisteredSubscriber implements EventSubscriberInterface
             $event->customerId()->value(),
             $event->name(),
             $event->email()->value()
+        );
+    }
+
+    public function onCustomerProfileUpdated(CustomerProfileUpdatedEvent $event) : void
+    {
+        $this->customerEventStore->insert($event);
+
+        printf(
+            "Customer profile updated %d %s %s" . PHP_EOL,
+            $event->customerId()->value(),
+            $event->field(),
+            $event->value()
         );
     }
 }

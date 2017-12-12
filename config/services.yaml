@@ -23,11 +23,10 @@ services:
 #        resource: '../src/Controller'
 #        tags: ['controller.service_arguments']
 
-    App\Subscriber\CustomerRegisteredSubscriber:
-        tags: { name: kernel.event_subscriber, event: customer_registered }
-
-    App\Subscriber\CustomerProfileUpdatedSubscriber:
-        tags: { name: kernel.event_subscriber, event: customer_profile_updated }
+    App\Subscriber\CustomerEventsPersister:
+        tags:
+            - { name: kernel.event_subscriber, event: customer_registered }
+            - { name: kernel.event_subscriber, event: customer_profile_updated }
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
