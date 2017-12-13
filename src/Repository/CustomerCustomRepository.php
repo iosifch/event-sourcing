@@ -45,4 +45,17 @@ class CustomerCustomRepository
             'name' => $value
         ]);
     }
+
+    public function emailExists(Email $email) : bool
+    {
+        $stmt = $this->em->getConnection()->prepare('
+            SELECT COUNT(*)
+            FROM customer_custom_projection
+            WHERE `email` = :email
+        ');
+        $stmt->bindValue('email', $email->value());
+        $stmt->execute();
+
+        return (bool)$stmt->fetchColumn();
+    }
 }
